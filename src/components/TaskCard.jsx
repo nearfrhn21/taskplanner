@@ -234,19 +234,15 @@ export default function TaskCard({
             </button>
           </div>
 
-          {/* Status Chip */}
+          {/* Status Chip (Two states: COMPLETED or TODO) */}
           <span
             className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-              task.status === 'completed'
+              isCompleted
                 ? 'bg-emerald-100 text-emerald-800'
-                : task.status === 'in_progress'
-                ? 'bg-amber-100 text-amber-800'
-                : task.status === 'review'
-                ? 'bg-purple-100 text-purple-800'
-                : 'bg-slate-100 text-slate-700'
+                : 'bg-amber-100 text-amber-800'
             }`}
           >
-            {task.status?.replace('_', ' ').toUpperCase()}
+            {isCompleted ? 'COMPLETED' : 'TODO'}
           </span>
         </div>
       </div>

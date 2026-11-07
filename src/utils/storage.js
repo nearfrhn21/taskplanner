@@ -13,7 +13,12 @@ export function loadTasks() {
       return INITIAL_TASKS;
     }
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : INITIAL_TASKS;
+    if (!Array.isArray(parsed)) return INITIAL_TASKS;
+    // Normalize status to only two states: 'completed' (checked) or 'todo' (unchecked)
+    return parsed.map((t) => ({
+      ...t,
+      status: t.status === 'completed' ? 'completed' : 'todo'
+    }));
   } catch (e) {
     console.error('Error loading tasks from localStorage', e);
     return INITIAL_TASKS;

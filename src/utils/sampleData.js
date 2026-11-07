@@ -32,7 +32,7 @@ export const INITIAL_TASKS = [
     workingDate: todayStr,
     dueDate: tomorrowStr,
     priority: 'urgent',
-    status: 'in_progress',
+    status: 'todo',
     estimatedHours: 4,
     description: `Assignment Objective:
 Implement a generic self-balancing binary search tree supporting:
@@ -149,7 +149,7 @@ Chicago Manual of Style footnotes required.`,
     workingDate: yesterdayStr,
     dueDate: todayStr,
     priority: 'urgent',
-    status: 'review',
+    status: 'completed',
     estimatedHours: 2.5,
     description: `Problems from Chapter 7:
 - Exercise 7.1: Compute characteristic polynomials for 3x3 symmetric matrices.

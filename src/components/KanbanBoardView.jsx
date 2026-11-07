@@ -3,10 +3,8 @@ import TaskCard from './TaskCard';
 import { Plus } from 'lucide-react';
 
 const COLUMNS = [
-  { id: 'todo', title: 'To Do', color: 'bg-slate-100 text-slate-700 border-slate-200' },
-  { id: 'in_progress', title: 'In Progress', color: 'bg-indigo-50 text-indigo-700 border-indigo-200' },
-  { id: 'review', title: 'Review / Polish', color: 'bg-purple-50 text-purple-700 border-purple-200' },
-  { id: 'completed', title: 'Completed', color: 'bg-emerald-50 text-emerald-700 border-emerald-200' }
+  { id: 'todo', title: 'Unchecked (To Do)', color: 'bg-amber-50 text-amber-800 border-amber-200' },
+  { id: 'completed', title: 'Checked (Completed)', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' }
 ];
 
 export default function KanbanBoardView({
@@ -20,7 +18,7 @@ export default function KanbanBoardView({
   onNewTask
 }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
       {COLUMNS.map((col) => {
         const columnTasks = tasks.filter((t) => (t.status || 'todo') === col.id);
 

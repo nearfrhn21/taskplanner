@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   X, Calendar, Paperclip, Upload, FileText, Image as ImageIcon, 
-  Trash2, Plus, Clock, AlertTriangle, CheckCircle2, BookOpen, Flag
+  Trash2, Plus, Clock, AlertTriangle, CheckCircle2, Circle, BookOpen, Flag
 } from 'lucide-react';
 import DualDatePicker from './DualDatePicker';
 import { validateDateRange } from '../utils/dateUtils';
@@ -435,22 +435,38 @@ export default function TaskModal({
             )}
           </div>
 
-          {/* Section 4: Status and Estimated Study Hours */}
+          {/* Section 4: Status (Two States: Unchecked / Checked) and Estimated Study Hours */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                 Status
               </label>
-              <select
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:border-indigo-600"
-              >
-                <option value="todo">📝 To Do</option>
-                <option value="in_progress">⚡ In Progress</option>
-                <option value="review">🔍 Needs Review</option>
-                <option value="completed">✅ Completed</option>
-              </select>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setStatus('todo')}
+                  className={`py-2 px-3 text-xs font-bold rounded-xl border text-center transition-all flex items-center justify-center gap-1.5 ${
+                    status !== 'completed'
+                      ? 'bg-amber-50 border-amber-300 text-amber-800 ring-2 ring-amber-400/20'
+                      : 'border-slate-200 text-slate-500 hover:bg-slate-50'
+                  }`}
+                >
+                  <Circle className="w-3.5 h-3.5" />
+                  <span>Unchecked (To Do)</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setStatus('completed')}
+                  className={`py-2 px-3 text-xs font-bold rounded-xl border text-center transition-all flex items-center justify-center gap-1.5 ${
+                    status === 'completed'
+                      ? 'bg-emerald-50 border-emerald-300 text-emerald-800 ring-2 ring-emerald-400/20'
+                      : 'border-slate-200 text-slate-500 hover:bg-slate-50'
+                  }`}
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Checked (Complete)</span>
+                </button>
+              </div>
             </div>
 
             <div>

@@ -10,7 +10,7 @@ A comprehensive, mobile-first Web Application built for students to plan coursew
 - **Title**: Strict character limit with live counter (**Max 180 characters**).
 - **Description & Study Notes**: Deep note-taking support with live progress bar and counter (**Max 20,000 characters**).
 - **Course & Subject Tagging**: Assign courses (e.g., Computer Science, Organic Chemistry, Linear Algebra) with customizable tags and color indicators.
-- **Priority & Status**: Urgent, High, Medium, Low; To Do, In Progress, Review, Completed with celebratory confetti animation on completion.
+- **Priority & Status**: Urgent, High, Medium, Low; Two clear status states: **Unchecked (To Do)** and **Checked (Completed)** with celebratory confetti animation on completion.
 - **Subtasks Checklist**: Manage granular steps with completion percentages.
 
 ### 2. Dual-Mode Calendar & Dates
@@ -35,7 +35,7 @@ A comprehensive, mobile-first Web Application built for students to plan coursew
 ### 5. Views & Mobile-First Design
 - **Card Grid View**: Responsive cards with one-click notification buttons, attachment chips, and progress bars.
 - **Calendar & Timeline View**: Visual monthly schedule showing both Working Dates (🔨) and Deadlines (⏰) color-coded on the calendar.
-- **Kanban Board View**: Organize tasks by stage (*To Do*, *In Progress*, *Review*, *Completed*).
+- **Kanban Board View**: Organize tasks across the two stages: *Unchecked (To Do)* and *Checked (Completed)*.
 - **Mobile Friendly Bottom App Bar**: Fast thumb navigation on mobile phones with floating "+" quick-add action.
 
 ---

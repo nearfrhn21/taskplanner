@@ -5,7 +5,7 @@ import { getDueStatus } from '../utils/dateUtils';
 export default function StatsOverview({ tasks = [], thresholdDays = 2, onOpenUrgent }) {
   const total = tasks.length;
   const completed = tasks.filter((t) => t.status === 'completed').length;
-  const inProgress = tasks.filter((t) => t.status === 'in_progress').length;
+  const pending = total - completed;
   
   const urgentTasks = tasks.filter((t) => {
     if (t.status === 'completed') return false;
@@ -34,7 +34,7 @@ export default function StatsOverview({ tasks = [], thresholdDays = 2, onOpenUrg
           <span className="text-xs text-slate-400">/ {total} total</span>
         </div>
         <div className="mt-2 flex items-center text-[11px] text-slate-500">
-          <span>{inProgress} in progress</span>
+          <span>{pending} pending</span>
         </div>
       </div>
 

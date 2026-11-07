@@ -118,10 +118,8 @@ export default function FilterBar({
             className="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 text-xs font-medium focus:outline-none focus:border-indigo-600"
           >
             <option value="all">All Statuses</option>
-            <option value="todo">To Do</option>
-            <option value="in_progress">In Progress</option>
-            <option value="review">Needs Review</option>
-            <option value="completed">Completed</option>
+            <option value="todo">Unchecked (To Do)</option>
+            <option value="completed">Checked (Completed)</option>
           </select>
         </div>
 

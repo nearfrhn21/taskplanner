@@ -92,7 +92,7 @@ export function formatWhatsAppMessage(task) {
   msg += `⏰ *Due Date:* ${formatFriendlyDate(task.dueDate)} [${dueInfo.text.toUpperCase()}]\n`;
   if (task.workingDate) msg += `🔨 *Working Date:* ${formatFriendlyDate(task.workingDate)}\n`;
   msg += `⚡ *Priority:* ${task.priority?.toUpperCase() || 'NORMAL'}\n`;
-  msg += `📊 *Status:* ${task.status?.replace('_', ' ').toUpperCase() || 'PENDING'}\n`;
+  msg += `📊 *Status:* ${task.status === 'completed' ? 'CHECKED (COMPLETED)' : 'UNCHECKED (TODO)'}\n`;
 
   if (subtasksTotal > 0) {
     msg += `\n📋 *Subtasks Progress:* ${subtasksDone}/${subtasksTotal} completed (${Math.round((subtasksDone/subtasksTotal)*100)}%)\n`;
@@ -156,7 +156,7 @@ export function formatEmailContent(task) {
   body += `• Due Date: ${formatFriendlyDate(task.dueDate)} (${dueInfo.text})\n`;
   body += `• Working Date: ${formatFriendlyDate(task.workingDate)}\n`;
   body += `• Priority: ${(task.priority || 'Normal').toUpperCase()}\n`;
-  body += `• Current Status: ${(task.status || 'To Do').replace('_', ' ').toUpperCase()}\n`;
+  body += `• Current Status: ${task.status === 'completed' ? 'Checked (Completed)' : 'Unchecked (To Do)'}\n`;
 
   if (task.subtasks && task.subtasks.length > 0) {
     const done = task.subtasks.filter(s => s.completed).length;
